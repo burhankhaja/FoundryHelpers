@@ -19,10 +19,12 @@ contract BiteByte {
         require(success, "Call failed");
     }
 
-    // call this with the function selector in string and gets its bytes selector
-    // eg: transfer(address,uint256) --> 0xa9059cbb --> confirmed on 4byte.directory
-// however 4byte returned multiple other answers too their signature matches, i pasted their string selector in this and yeah
-// their signature matches, that is why decoding from bytes4 --> string is very difficult
+    
+/** @dev := call this with the function selector in string and gets its bytes selector
+ ** eg: transfer(address,uint256) --> 0xa9059cbb --> confirmed on 4byte.directory
+ ** however 4byte returned multiple other answers too their signature matches, i pasted their string selector in this and yeah
+ ** their signature matches, that is why decoding from bytes4 --> string is very difficult
+*/
     function getSelectorOfFunction(string memory _functionSelector) public pure returns(bytes memory) {
         bytes memory _return = abi.encodeWithSignature(_functionSelector);
         return _return;
